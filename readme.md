@@ -15,6 +15,6 @@ Esta aplicación de Node.js utiliza Axios y Cheerio para buscar enlaces rotos en
 1. Modifica el archivo `index.js` para establecer la URL de la página que deseas analizar.
 2. Ejecuta la aplicación con el siguiente comando:
 
-```npm start```
+```npm start -- --url=https://example.com```
 
 Recuerda reemplazar 'https://example.com' por la URL de la página que deseas analizar.

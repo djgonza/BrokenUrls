@@ -32,7 +32,15 @@ async function findBrokenLinks(baseUrl, currentUrl, visitedUrls = new Set(), bro
 }
 
 async function main() {
-    const baseUrl = 'https://localhost:7019/UserManual'; // Cambia esto por la URL de la página que quieres analizar
+    // Obtener la URL como parámetro
+    const args = process.argv.slice(2);
+    const baseUrlArg = args.find(arg => arg.startsWith('--url='));
+    if (!baseUrlArg) {
+        console.error('Por favor, proporcione una URL usando el parámetro --url.');
+        return;
+    }
+
+    const baseUrl = baseUrlArg.split('=')[1];
     const { brokenLinks, visitedUrls } = await findBrokenLinks(baseUrl, baseUrl);
 
     console.log('Enlaces visitados:', visitedUrls);
